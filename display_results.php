@@ -16,6 +16,11 @@
         $wants_updates = 'No';
     }
     
+    $contact_via = filter_input(INPUT_POST, 'contact_via');
+
+    $comments = filter_input(INPUT_POST, 'comments');
+    $comments = htmlspecialchars($comments); 
+    $comments = nl2br($comments, false);
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,22 +36,24 @@
         <span><?php echo htmlspecialchars($email); ?></span><br>
 
         <label>Password:</label>
-        <span><!-- add PHP code here--></span><br>
+        <span><?php echo htmlspecialchars($password); ?></span><br>
 
         <label>Phone Number:</label>
-        <span></span><br>
+        <span><?php echo htmlspecialchars($phone); ?></span><br>
 
         <label>Heard From:</label>
-        <span></span><br>
+        <span><?php echo htmlspecialchars($heard_from); ?></span><br>
 
         <label>Send Updates:</label>
-        <span></span><br>
+        <span><?php echo $wants_updates; ?></span><br>
 
         <label>Contact Via:</label>
-        <span></span><br><br>
+        <span><?php echo htmlspecialchars($contact_via); ?></span><br><br>
 
         <span>Comments:</span><br>
-        <span></span><br>        
+        <span><?php echo $comments; ?></span><br>  
+
+        <p>&nbsp;</p>      
     </main>
 </body>
 </html>
