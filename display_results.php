@@ -4,11 +4,18 @@
     $password = filter_input(INPUT_POST, 'password');
     $phone = filter_input(INPUT_POST, 'phone');
 
-    // for the heard_from radio buttons,
-    // display a value of 'Unknown' if the user doesn't select a radio button
+    $heard_from = filter_input(INPUT_POST, 'heard_from');
+    if ($heard_from === NULL) {
+        $heard_from = 'Unknown';
+    }
 
-    // for the wants_updates check box,
-    // display a value of 'Yes' or 'No'
+    $wants_updates = $_POST['wants_updates'];
+    if (isset($wants_updates)) {
+        $wants_updates = 'Yes';
+    } else {
+        $wants_updates = 'No';
+    }
+    
 ?>
 <!DOCTYPE html>
 <html>
